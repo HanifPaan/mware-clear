@@ -16,7 +16,7 @@ else
 
     # Checks if current directory is a specific user's home folder (e.g., /home/username)
     if [[ ${#parts[@]} -eq 3 ]]; then
-        echo "you in user"
+        echo "https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/malw-per-user"
     # Checks if current directory is one level deep inside a user folder, acting as the docroot (e.g., /home/username/docroot)
     elif [[ ${#parts[@]} -eq 4 ]]; then
         echo "u in docroot"

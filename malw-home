@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "Starting process for $PWD"
+echo ""
+echo "Select mode:"
+echo "0) Clear (Default)"
+echo "1) Check"
+echo ""
+
+read -rp "Enter choice [0/1] (Default 0): " choice
+
+# Use default '0' if user presses Enter without typing anything
+choice="${choice:-0}"
+
+if [ "$choice" -eq 1 ]; then
+    echo ""
+    echo "Running Mass Check..."
+    curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/home-mass/mass-check | bash
+elif [ "$choice" -eq 0 ]; then
+    echo ""
+    echo "Running Mass Clear..."
+    curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/home-mass/mass-clear | bash
+else
+    echo ""
+    echo "Invalid option selected. Exiting."
+    exit 1
+fi

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+current_user=$(basename "$PWD")
+pattern='helper_cf6e8521\.php|SC_CORE_BOOT_VER|SCD1:4\.3\.24|retro-watcher-pad|agile-collector-hq|onyx-service-bit\.php|flux-scanner-dex|\$_scp=dirname\(__FILE__\)\.'
+
+echo "Scanning home directory for user: $current_user..."
+echo ""
+
+if command -v rg &> /dev/null; then
+  rg -l --hidden -e "$pattern" \
+    -g '!*.log' \
+    -g '!*.sql' \
+    -g '!config-synced.php' \
+    -g '!scan_data.php' \
+    -g '!error_log' \
+    -g '!.cagefs/**' \
+    -g '!.cpanel/**' \
+    -g '!tranziz/**' \
+    -g '!aimeq/**' \
+    -g '!mail/**' \
+    -g '!*backups/**' \
+    -g '!.cache/**' \
+    -g '!.caldav/**' \
+    . 2>/dev/null
+else
+  grep -RalE \
+    --exclude="*.log" \
+    --exclude="*.sql" \
+    --exclude="config-synced.php" \
+    --exclude="scan_data.php" \
+    --exclude="error_log" \
+    --exclude-dir=".cagefs" \
+    --exclude-dir=".cpanel" \
+    --exclude-dir="tranziz" \
+    --exclude-dir="aimeq" \
+    --exclude-dir="mail" \
+    --exclude-dir="*backups" \
+    --exclude-dir=".cache" \
+    --exclude-dir=".caldav" \
+    "$pattern" . 2>/dev/null
+fi

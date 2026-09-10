@@ -1,6 +1,17 @@
 #!/bin/bash
 
-echo "starting cleanup for $PWD"
+echo "Current Directory: $PWD"
+read -rp "Are you sure you want to clear for this directory? [y/n]: " confirm
+
+# Convert input to lowercase to support 'y' or 'Y'
+confirm_lc=$(echo "$confirm" | tr '[:upper:]' '[:lower:]')
+
+if [[ "$confirm_lc" != "y" && "$confirm_lc" != "yes" ]]; then
+    echo "Cleanup cancelled."
+    exit 0
+fi
+
+echo "Starting cleanup for $PWD..."
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-file-b_clear | bash
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-hcess_clear | bash
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_options | bash

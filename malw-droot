@@ -1,0 +1,41 @@
+#!/bin/bash
+
+echo "Current Directory: $PWD"
+echo "Select cleanup mode:"
+echo "  0 - Both (Files & DB) [Default]"
+echo "  1 - Files only"
+echo "  2 - DB only"
+read -rp "Enter choice [0/1/2]: " choice
+
+# Default to '0' if the user just presses Enter
+choice="${choice:-0}"
+
+case "$choice" in
+    0)
+        echo "Starting full cleanup (Files & DB) for $PWD..."
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-file-b_clear-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-hcess_clear-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db_options-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db_audit_clean-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-cron_events_clear | bash
+        echo "kindly verify user n remove what not"
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db-user_list-droot | bash
+        ;;
+    1)
+        echo "Starting file-only cleanup for $PWD..."
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-file-b_clear-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-hcess_clear-droot | bash
+        ;;
+    2)
+        echo "Starting DB-only cleanup for $PWD..."
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_options-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_audit_clean-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-cron_events-clear-droot | bash
+        echo "kindly verify user n remove what not"
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db-user_list-droot | bash
+        ;;
+    *)
+        echo "Invalid choice. Cleanup cancelled."
+        exit 1
+        ;;
+esac

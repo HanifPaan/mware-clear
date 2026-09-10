@@ -16,6 +16,6 @@ curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-hcess_clear | bash
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_options | bash
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_audit_clean | bash
-curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-cron_events-clear | bash
+curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-cron_events_clear | bash
 echo "kindly verify user n remove what not"
 curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db-user_list | bash

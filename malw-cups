@@ -1,0 +1,28 @@
+#!/bin/bash
+
+current_dir="$PWD"
+
+#this is whre the command selection starts
+
+
+# Checks if current directory is /root or not under any /home path (e.g., /, /etc, /tmp)
+if [[ "$current_dir" == "/root" ]] || [[ "$current_dir" != /home* ]]; then
+    echo "Cant run here this is not /home"
+# Checks if current directory is exactly a base home directory (e.g., /home, /home1, /home2)
+elif [[ "$current_dir" =~ ^/home[0-9]*$ ]]; then
+    echo "you in home"
+else
+    IFS='/' read -ra parts <<< "$current_dir"
+
+    # Checks if current directory is a specific user's home folder (e.g., /home/username)
+    if [[ ${#parts[@]} -eq 3 ]]; then
+        echo "you in user"
+    # Checks if current directory is one level deep inside a user folder, acting as the docroot (e.g., /home/username/docroot)
+    elif [[ ${#parts[@]} -eq 4 ]]; then
+        echo "u in docroot"
+    # Checks if current directory is deeper than the docroot level, identifying the base docroot it belongs to
+    elif [[ ${#parts[@]} -gt 4 ]]; then
+        docroot="/${parts[1]}/${parts[2]}/${parts[3]}"
+        echo "u making for this docroot (this belong to $docroot)"
+    fi
+fi

@@ -1,9 +1,11 @@
 #!/bin/bash
 
 echo "Current Directory: $PWD"
-read -rp "Are you sure you want to clear for this directory? [y/n]: " confirm
 
-# Convert input to lowercase to support 'y' or 'Y'
+# </dev/tty forces input from the terminal keyboard even when piped via curl
+read -rp "Are you sure you want to clear for this directory? [y/n]: " confirm </dev/tty
+
+# Convert input to lowercase to support 'y', 'Y', 'yes', or 'YES'
 confirm_lc=$(echo "$confirm" | tr '[:upper:]' '[:lower:]')
 
 if [[ "$confirm_lc" != "y" && "$confirm_lc" != "yes" ]]; then

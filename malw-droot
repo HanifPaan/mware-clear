@@ -31,11 +31,11 @@ case "$choice" in
         ;;
     2)
         echo "Starting DB-only cleanup for $PWD..."
-        echo "remove unauthorised user via: wp user delete <Id> --yes --allow-root in /path/to/domain-docroot"
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_options-droot | bash
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-db_audit_clean-droot | bash
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-cron_events-clear-droot | bash
         echo "kindly verify user n remove what not"
+        echo "remove unauthorised user via: wp user delete <Id> --yes --allow-root in /path/to/domain-docroot"
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db-user_list-droot | bash
         ;;
     *)

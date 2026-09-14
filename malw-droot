@@ -29,6 +29,7 @@ case "$choice" in
         echo "Starting file-only cleanup for $PWD..."
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-file-b_clear-droot | bash
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-hcess_clear-droot | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-user-ini_clear-droot | bash
         ;;
     2)
         echo "Starting DB-only cleanup for $PWD..."

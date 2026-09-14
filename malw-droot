@@ -23,7 +23,7 @@ case "$choice" in
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-cron_events_clear | bash
         echo "kindly verify user n remove what not"
         echo "remove unauthorised user via:"
-        echo ""wp user delete <Id> --yes --allow-root" in /path/to/domain-docroot"
+        echo "[wp user delete <Id> --yes --allow-root] in /path/to/domain-docroot"
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db-user_list-droot | bash
         ;;
     1)
@@ -40,7 +40,7 @@ case "$choice" in
         echo        
         echo "kindly verify user n remove what not"
         echo "remove unauthorised user via:"
-        echo ""wp user delete <Id> --yes --allow-root" in /path/to/domain-docroot"
+        echo "[wp user delete <Id> --yes --allow-root] in /path/to/domain-docroot"
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/dmain-droot/malware-db-user_list-droot | bash
         ;;
     *)

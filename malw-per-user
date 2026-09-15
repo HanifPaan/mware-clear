@@ -31,6 +31,7 @@ case "$choice" in
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-file-b_clear | bash
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-hcess_clear | bash
         curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-user-ini_clear | bash
+        curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/user/malware-plugins_clear | bash
         ;;
     2)
         echo "Starting DB-only cleanup for $PWD..."

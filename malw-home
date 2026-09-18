@@ -19,8 +19,7 @@ if [ "$choice" -eq 1 ]; then
     curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/home-mass/mass-check | bash
 elif [ "$choice" -eq 0 ]; then
     echo ""
-    echo "Running Mass Clear..."
-    curl -s https://raw.githubusercontent.com/HanifPaan/mware-clear/refs/heads/main/home-mass/mass-clear | bash
+    echo "Disabled atm..."
 else
     echo ""
     echo "Invalid option selected. Exiting."
